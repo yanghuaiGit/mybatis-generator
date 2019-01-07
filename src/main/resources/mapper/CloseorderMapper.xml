@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yh.mybatisgeneter.mapper.CloseorderMapper" >
+  <resultMap id="BaseResultMap" type="com.yh.mybatisgeneter.model.Closeorder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="quote_id" property="quoteId" jdbcType="INTEGER" />
+    <result column="company_id" property="companyId" jdbcType="INTEGER" />
+    <result column="create_price" property="createPrice" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="end_price" property="endPrice" jdbcType="DECIMAL" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="dir" property="dir" jdbcType="INTEGER" />
+    <result column="o_create_time" property="oCreateTime" jdbcType="TIMESTAMP" />
+    <result column="o_update_time" property="oUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="closenum" property="closenum" jdbcType="INTEGER" />
+    <result column="gal" property="gal" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, room_id, quote_id, company_id, create_price, create_time, end_price, end_time, 
+    dir, o_create_time, o_update_time, version, closenum, gal
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from closeorder
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from closeorder
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yh.mybatisgeneter.model.Closeorder" >
+    insert into closeorder (id, uid, room_id, 
+      quote_id, company_id, create_price, 
+      create_time, end_price, end_time, 
+      dir, o_create_time, o_update_time, 
+      version, closenum, gal
+      )
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}, 
+      #{quoteId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{createPrice,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{endPrice,jdbcType=DECIMAL}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{dir,jdbcType=INTEGER}, #{oCreateTime,jdbcType=TIMESTAMP}, #{oUpdateTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=INTEGER}, #{closenum,jdbcType=INTEGER}, #{gal,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yh.mybatisgeneter.model.Closeorder" >
+    insert into closeorder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="quoteId != null" >
+        quote_id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="createPrice != null" >
+        create_price,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="endPrice != null" >
+        end_price,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="dir != null" >
+        dir,
+      </if>
+      <if test="oCreateTime != null" >
+        o_create_time,
+      </if>
+      <if test="oUpdateTime != null" >
+        o_update_time,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="closenum != null" >
+        closenum,
+      </if>
+      <if test="gal != null" >
+        gal,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="roomId != null" >
+        #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="quoteId != null" >
+        #{quoteId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="createPrice != null" >
+        #{createPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endPrice != null" >
+        #{endPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dir != null" >
+        #{dir,jdbcType=INTEGER},
+      </if>
+      <if test="oCreateTime != null" >
+        #{oCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oUpdateTime != null" >
+        #{oUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="closenum != null" >
+        #{closenum,jdbcType=INTEGER},
+      </if>
+      <if test="gal != null" >
+        #{gal,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yh.mybatisgeneter.model.Closeorder" >
+    update closeorder
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="roomId != null" >
+        room_id = #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="quoteId != null" >
+        quote_id = #{quoteId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="createPrice != null" >
+        create_price = #{createPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endPrice != null" >
+        end_price = #{endPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dir != null" >
+        dir = #{dir,jdbcType=INTEGER},
+      </if>
+      <if test="oCreateTime != null" >
+        o_create_time = #{oCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oUpdateTime != null" >
+        o_update_time = #{oUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="closenum != null" >
+        closenum = #{closenum,jdbcType=INTEGER},
+      </if>
+      <if test="gal != null" >
+        gal = #{gal,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yh.mybatisgeneter.model.Closeorder" >
+    update closeorder
+    set uid = #{uid,jdbcType=INTEGER},
+      room_id = #{roomId,jdbcType=INTEGER},
+      quote_id = #{quoteId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      create_price = #{createPrice,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      end_price = #{endPrice,jdbcType=DECIMAL},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      dir = #{dir,jdbcType=INTEGER},
+      o_create_time = #{oCreateTime,jdbcType=TIMESTAMP},
+      o_update_time = #{oUpdateTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      closenum = #{closenum,jdbcType=INTEGER},
+      gal = #{gal,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
